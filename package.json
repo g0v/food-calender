@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "next build && next export && touch out/.nojekyll && git add out -f && git commit -m gh-pages && git push origin `git subtree split --prefix out master`:gh-pages --force && git reset HEAD^"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15",
     "next": "9.4.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
